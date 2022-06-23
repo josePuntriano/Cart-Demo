@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/test/resources/features/carrito/compra/orden-compra.feature=UTF-8
+encoding//src/test/resources/features/carrito/login/login-usuario.feature=UTF-8
+encoding//src/test/resources/features/carrito/registro/usuario/registro-usuario.feature=UTF-8
+encoding//src/test/resources/features/carrito/seleccionarProductos/llenar-carrito.feature=UTF-8
