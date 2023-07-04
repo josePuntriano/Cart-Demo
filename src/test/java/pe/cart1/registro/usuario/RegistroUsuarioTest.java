@@ -6,7 +6,7 @@ import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions( features = "classpath:features/carrito/registro/usuario")
+@CucumberOptions( features = "classpath:features/carrito/1-registroUsuario")
 
 public class RegistroUsuarioTest {
 

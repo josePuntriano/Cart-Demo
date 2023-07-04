@@ -1,4 +1,4 @@
-Feature: PRODUCT STORE - Seleccionar Productos
+Feature: 3. Seleccionar Productos
 
 	Scenario Outline: Seleccionar Productos
 		Given Se carga el sistema PRODUCT STORE
@@ -11,5 +11,5 @@ Feature: PRODUCT STORE - Seleccionar Productos
 	
 	Examples:
 		| usuario 					 | clave    | 
-		| "automatizacion60" | "prueba" | 
+		| "automatizacion" | "prueba" | 
 		

@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/test/resources/features/carrito/compra/orden-compra.feature=UTF-8
-encoding//src/test/resources/features/carrito/login/login-usuario.feature=UTF-8
-encoding//src/test/resources/features/carrito/registro/usuario/registro-usuario.feature=UTF-8
-encoding//src/test/resources/features/carrito/seleccionarProductos/llenar-carrito.feature=UTF-8
+encoding//src/test/resources/features/carrito/1-registroUsuario/registro-usuario.feature=UTF-8
+encoding//src/test/resources/features/carrito/2-login/login-usuario.feature=UTF-8
+encoding//src/test/resources/features/carrito/3-seleccionarProductos/llenar-carrito.feature=UTF-8
+encoding//src/test/resources/features/carrito/4-compra/orden-compra.feature=UTF-8

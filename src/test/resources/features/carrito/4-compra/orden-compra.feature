@@ -1,4 +1,4 @@
-Feature: PRODUCT STORE - Realiza Orden de compra
+Feature: 4. Realiza Orden de compra
 
 	Scenario Outline: Realiza Orden de compra
 		Given Se carga el sistema PRODUCT STORE
@@ -12,5 +12,5 @@ Feature: PRODUCT STORE - Realiza Orden de compra
 	
 	Examples:
 		| usuario 					 | clave    | name 			   | country | city 	| creditCard            | month | year   | 
-		| "automatizacion60" | "prueba" | "Juan Perez" | "Perú"  | "Lima" | "0084 5874 5874 9841" | "12"  | "2026" | 
+		| "automatizacion" | "prueba" | "Juan Perez" | "Perú"  | "Lima" | "0084 5874 5874 9841" | "12"  | "2026" | 
 		

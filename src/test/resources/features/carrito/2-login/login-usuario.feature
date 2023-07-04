@@ -1,4 +1,4 @@
-Feature: PRODUCT STORE - Login del usuario
+Feature: 2. Login del usuario
 
 	Scenario Outline: Login del usuario
 		Given Se carga el sistema PRODUCT STORE
@@ -7,5 +7,5 @@ Feature: PRODUCT STORE - Login del usuario
 	
 	Examples:
 		| usuario 					 | clave    | 
-		| "automatizacion60" | "prueba" | 
+		| "automatizacion" | "prueba" | 
 		

@@ -1,4 +1,4 @@
-Feature: PRODUCT STORE - Registro de usuario
+Feature: 1. Registro de usuario
 
 	Scenario Outline: Registro de usuario
 		Given Se carga el sistema PRODUCT STORE
@@ -7,5 +7,5 @@ Feature: PRODUCT STORE - Registro de usuario
 	
 	Examples:
 		| usuarioRegistro		 | claveRegistro | 
-		| "automatizacion60" | "prueba" 		 | 
+		| "automatizacion" | "prueba" 		 | 
 		
