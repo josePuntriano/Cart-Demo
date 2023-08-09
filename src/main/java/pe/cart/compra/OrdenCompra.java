@@ -22,7 +22,7 @@ public class OrdenCompra {
 	private By btnLogout = By.xpath("/html/body/nav/div[1]/ul/li[6]/a");
 	
 	private WebDriver driver;
-
+//prueba
 	
 	public OrdenCompra(WebDriver driver) {
 		this.driver = driver;
