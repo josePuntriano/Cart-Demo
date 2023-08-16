@@ -1,42 +1,45 @@
 package pe.cart.registro;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Registro {
 
-	private By btnRegistro = By.xpath("/html/body/nav/div[1]/ul/li[8]/a");
+	private final By btnRegistro = By.cssSelector("#signin2");
 	
-	private By txtUsernameRegistro = By.xpath("/html/body/div[2]/div/div/div[2]/form/div[1]/input");
-	private By txtPasswordRegistro = By.xpath("/html/body/div[2]/div/div/div[2]/form/div[2]/input");
+	private final By txtUsernameRegistro = By.cssSelector("#sign-username");
+	private final By txtPasswordRegistro = By.cssSelector("#sign-password");
 	
-	private By btnConfirmar = By.xpath("/html/body/div[2]/div/div/div[3]/button[2]");
+	private final By btnConfirmar = By.xpath("//*[contains(text(),'Sign up') and @type='button']");
 	
-	private WebDriver driver;
+	private final WebDriver driver;
+	private final WebDriverWait wait;
 
 	
-	public Registro(WebDriver driver) {
+	public Registro(WebDriver driver,WebDriverWait wait) {
 		this.driver = driver;
+		this.wait = wait;
 	}
 	
 	
-	public void registroUsuario(String usernameRegistro, String passwordRegistro) throws InterruptedException {
-		
-		Thread.sleep(4000);
+	public void registroUsuario(String usernameRegistro, String passwordRegistro)  {
 		this.driver.findElement(btnRegistro).click();
-				
-		Thread.sleep(2000);
+
 		this.driver.findElement(txtUsernameRegistro).clear();
 		this.driver.findElement(txtUsernameRegistro).sendKeys(usernameRegistro);
-		
-		Thread.sleep(2000);
+
 		this.driver.findElement(txtPasswordRegistro).clear();
 		this.driver.findElement(txtPasswordRegistro).sendKeys(passwordRegistro);
-		
-		Thread.sleep(2000);
+
 		this.driver.findElement(btnConfirmar).click();
-		
-		Thread.sleep(3000);
+
+		wait.until(ExpectedConditions.alertIsPresent());
+		Alert alert = driver.switchTo().alert();
+
+		alert.accept();
 	}
 	
 }

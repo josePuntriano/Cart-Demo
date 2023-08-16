@@ -8,6 +8,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Managed;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pe.cart.compra.OrdenCompra;
 import pe.cart.driver.Driver;
 import pe.cart.driver.Driver.NavegadorWeb;
@@ -19,56 +20,58 @@ public class OrdenCompraSteps {
 	
 	@Managed
 	private WebDriver driver;
+	private WebDriverWait wait;
 	private PaginaInicio paginaInicio;
 	private Login login;
 	private OrdenCompra ordenCompra;
 	
 	@Before
-	public void configuracionInicial() {
-		
+	public void setupTest() {
 		driver = Driver.getInstancia(NavegadorWeb.CHROME);
 		driver.manage().window().maximize();
+		wait = new WebDriverWait(driver,10);
+
 		paginaInicio = new PaginaInicio(driver);
-		login = new Login(driver);
-		ordenCompra = new OrdenCompra(driver);
+		login = new Login(driver,wait);
+		ordenCompra = new OrdenCompra(driver,wait);
 	}
 	
 	@After
-	public void configuracionFinal() {
+	public void close() {
 		driver.close();
 	}
 	
 	@Given("Se carga el sistema PRODUCT STORE")
-	public void cargarSistema() throws InterruptedException {
+	public void cargarSistema() {
 		paginaInicio.cargar();
 	}
 	
-	@And("Se ingresa con el usuario ya registrado {string} y contraseña {string}")
-	public void logeo(String usuario, String password) throws InterruptedException {
+	@And("Se ingresa con el usuario ya registrado {string} y clave {string}")
+	public void logeo(String usuario, String password)  {
 		login.login(usuario, password);
 	}
 	
 	@And("Se ingresa al carrito para ver el listado de productos a comprar")
-	public void carrito() throws InterruptedException {
+	public void carrito() {
 		ordenCompra.verCarrito();
 	}
 	
-	@And("Se realiza el pedido dandole al botón Place Order")
-	public void realizaOrdenCompra() throws InterruptedException {
+	@And("Se realiza el pedido dandole al boton Place Order")
+	public void realizaOrdenCompra() {
 		ordenCompra.realizarPedido();
 	}
-	@And("Se ingresa el nombre {string}, país {string}, ciudad {string}, tarjeta de crédito {string}, mes {string}, y año {string}")
-	public void ingresaDatos(String name, String country, String city, String creditCard, String month, String year) throws InterruptedException {
+	@And("Se ingresa el nombre {string}, pais {string}, ciudad {string}, tarjeta de credito {string}, mes {string}, y periodo {string}")
+	public void ingresaDatos(String name, String country, String city, String creditCard, String month, String year) {
 		ordenCompra.llenarFormulario(name, country, city, creditCard, month, year);
 	}
 	
 	@And("Se confirma la compra")
-	public void confirmaCompra() throws InterruptedException {
+	public void confirmaCompra() throws InterruptedException{
 		ordenCompra.confirmacion();
 	}
 	
-	@Then("El usuario cierra sesión")
-	public void cierraSesion() throws InterruptedException {
+	@Then("El usuario cierra sesion")
+	public void cierraSesion() {
 		ordenCompra.cerrarSesion();
 	}
 

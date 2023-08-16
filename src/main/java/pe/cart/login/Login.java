@@ -2,41 +2,43 @@ package pe.cart.login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class Login {
 	
-	private By btnLogin = By.xpath("/html/body/nav/div[1]/ul/li[5]/a");
+	private final By imagenCel = By.xpath("//*[@*='imgs/Lumia_1520.jpg']");
+	private final By btnLogin = By.cssSelector("#login2");
 	
-	private By txtUsuario = By.xpath("/html/body/div[3]/div/div/div[2]/form/div[1]/input");
-	private By txtPassword = By.xpath("/html/body/div[3]/div/div/div[2]/form/div[2]/input");	
+	private final By txtUsuario = By.cssSelector("#loginusername");
+	private final By txtPassword = By.cssSelector("#loginpassword");
 	
-	private By btnIngresar = By.xpath("/html/body/div[3]/div/div/div[3]/button[2]");
+	private final By btnIngresar = By.xpath("//*[contains(text(),'Log in') and @type='button']");
 
-	private WebDriver driver;
 
+	private final WebDriver driver;
+	private final WebDriverWait wait;
 	
-	public Login(WebDriver driver) {
+	public Login(WebDriver driver, WebDriverWait wait) {
 		this.driver = driver;
+		this.wait = wait;
 	}
-	
-	
-	public void login (String usuario, String password) throws InterruptedException {
-		
-		Thread.sleep(2000);
+
+
+	public void login (String usuario, String password)  {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(imagenCel));
 		this.driver.findElement(btnLogin).click();
-				
-		Thread.sleep(2000);
+
 		this.driver.findElement(txtUsuario).clear();
 		this.driver.findElement(txtUsuario).sendKeys(usuario);
-		
-		Thread.sleep(2000);
+
 		this.driver.findElement(txtPassword).clear();
 		this.driver.findElement(txtPassword).sendKeys(password);
-		
-		Thread.sleep(2000);
+
 		this.driver.findElement(btnIngresar).click();
-		
-		Thread.sleep(4000);	
+
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(btnIngresar));
 	}
 	
 }

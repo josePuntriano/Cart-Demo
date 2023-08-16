@@ -6,6 +6,6 @@ Feature: 1. Registro de usuario
 
 	
 	Examples:
-		| usuarioRegistro		 | claveRegistro | 
-		| "automatizacion" | "prueba" 		 | 
+		| usuarioRegistro	| claveRegistro |
+		| "qa-auto444"    	| "pruebas"      |
 		

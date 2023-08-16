@@ -22,7 +22,8 @@ public class Driver {
 	private static WebDriver getDriverChrome() {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
+
+		driver.manage().window();
 		return driver;
 	}
 	
@@ -30,7 +31,8 @@ public class Driver {
 	private static WebDriver getDriverEdge() {
 		WebDriverManager.edgedriver().setup();
 		WebDriver driver = new EdgeDriver(); 
-		driver.manage().window().maximize();
+
+		driver.manage().window();
 		return driver;
 	}
 	

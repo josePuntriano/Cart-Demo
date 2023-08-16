@@ -3,14 +3,16 @@ package pe.cart.inicio;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class PaginaInicio {
 
-	private WebDriver driver;
+	private final WebDriver driver;
 	
-	private String url = "https://www.demoblaze.com/index.html";
-	
-	private By btnDerecha = By.xpath("/html/body/nav/div[2]/div/a[2]/span[1]");
-	private By btnIzquierda = By.xpath("/html/body/nav/div[2]/div/a[1]/span[1]");
+	private final String url = "https://www.demoblaze.com/index.html";
+
+	private final By btnDerecha = By.xpath("//*[@data-slide='next']");
+	private final By btnIzquierda = By.xpath("//*[@data-slide='prev']");
 
 	
 	public PaginaInicio(WebDriver driver) {
@@ -20,23 +22,18 @@ public class PaginaInicio {
 	
 	public void cargar() {
 		this.driver.get(url);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
-	public void panel() throws InterruptedException {
-		
-		Thread.sleep(2000);
+	public void panel()  {
+
 		this.driver.findElement(btnDerecha).click();
-		Thread.sleep(1000);
 		this.driver.findElement(btnDerecha).click();
-		Thread.sleep(1000);
 		this.driver.findElement(btnDerecha).click();
-		
-		Thread.sleep(3000);
+
 		this.driver.findElement(btnIzquierda).click();
-		Thread.sleep(1000);
 		this.driver.findElement(btnIzquierda).click();
-		Thread.sleep(1000);
-		this.driver.findElement(btnIzquierda).click();		
+		this.driver.findElement(btnIzquierda).click();
 	}
 		
 }
