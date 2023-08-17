@@ -56,11 +56,11 @@ public class OrdenCompraSteps {
 		ordenCompra.verCarrito();
 	}
 	
-	@And("Se realiza el pedido dandole al boton Place Order")
+	@And("Se realiza el pedido dandole al botón Place Order")
 	public void realizaOrdenCompra() {
 		ordenCompra.realizarPedido();
 	}
-	@And("Se ingresa el nombre {string}, pais {string}, ciudad {string}, tarjeta de credito {string}, mes {string}, y periodo {string}")
+	@And("Se ingresa el nombre {string}, país {string}, ciudad {string}, tarjeta de crédito {string}, mes {string}, y año {string}")
 	public void ingresaDatos(String name, String country, String city, String creditCard, String month, String year) {
 		ordenCompra.llenarFormulario(name, country, city, creditCard, month, year);
 	}
@@ -70,7 +70,7 @@ public class OrdenCompraSteps {
 		ordenCompra.confirmacion();
 	}
 	
-	@Then("El usuario cierra sesion")
+	@Then("El usuario cierra sesión")
 	public void cierraSesion() {
 		ordenCompra.cerrarSesion();
 	}

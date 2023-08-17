@@ -4,10 +4,10 @@ Feature: 4. Realiza Orden de compra
 		Given Se carga el sistema PRODUCT STORE
 			And Se ingresa con el usuario ya registrado <usuario> y clave <clave>
 			And Se ingresa al carrito para ver el listado de productos a comprar
-			And Se realiza el pedido dandole al boton Place Order
-			And Se ingresa el nombre <name>, pais <country>, ciudad <city>, tarjeta de credito <creditCard>, mes <month>, y periodo <year>
+			And Se realiza el pedido dandole al botón Place Order
+			And Se ingresa el nombre <name>, país <country>, ciudad <city>, tarjeta de crédito <creditCard>, mes <month>, y año <year>
 			And Se confirma la compra
-			Then El usuario cierra sesion
+			Then El usuario cierra sesión
 			
 	
 	Examples:
